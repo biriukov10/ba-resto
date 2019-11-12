@@ -16,7 +16,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .ba-header {
   background-color: #fff;
   height: 111px;
@@ -40,12 +44,174 @@ a {
   display: flex;
   align-items: center;
   list-style: none;
+  .ba-has-submenu {
+    position: relative;
+    .ba-sub-menu {
+      position: absolute;
+      visibility: hidden;
+      display: none;
+      min-width: 200px;
+      opacity: 0;
+      background-color: rgb(173, 166, 166);
+      padding: 0 10px;
+      border: 1px solid #000;
+      border-radius: 5px;
+
+      .ba-menu__item {
+        width: 100%;
+        border-bottom: 1px solid #000;
+        text-transform: uppercase;
+        margin: 1vh 0;
+        margin-left: 0;
+        padding: 5px 0;
+
+        &:hover {
+          color: #fff;
+          border-color: rgb(224, 221, 221);
+        }
+      }
+      .ba-menu__item:last-child {
+        position: relative;
+      }
+      
+    }
+    &:hover .ba-sub-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  .ba-sub {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+    min-width: 150px;
+    opacity: 0;
+    background-color: rgb(173, 166, 166);
+    padding: 0 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    .ba-menu__item {
+      color: brown;
+      &:hover {
+          color: gray;
+          border-color: rgb(184, 179, 179);
+        }
+    }
+    .ba-menu__item::last-child {
+      position: relative;
+    }
+  }
+  .visible:hover .ba-sub {
+    position: absolute;
+    top: 0;
+    left: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    visibility: visible;
+    opacity: 1;
+    color: #fff;
+  }
+  .ba-sub-m {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+    min-width: 150px;
+    opacity: 0;
+    background-color: rgb(173, 166, 166);
+    padding: 0 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    .ba-menu__item {
+      color: yellow;
+    }
+    .ba-menu__item:last-child {
+      position: relative;
+    }
+  }
+ 
+  .visit:hover .ba-sub-m {
+    position: absolute;
+    top: 55%;
+    left: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    visibility: visible;
+    opacity: 1;
+    color: #fff;
+  }
+  .ba-sub-b {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+    min-width: 150px;
+    opacity: 0;
+    background-color: rgb(173, 166, 166);
+    padding: 0 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    .ba-menu__item {
+      color: green;
+    }
+    .ba-menu__item:last-child {
+      position: relative;
+    }
+  }
+  .line:hover .ba-sub-b {
+    position: absolute;
+    top: 30%;
+    left: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    visibility: visible;
+    opacity: 1;
+  }
+  .ba-sub-pizza {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+    min-width: 150px;
+    opacity: 0;
+    background-color: rgb(173, 166, 166);
+    padding: 0 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    .ba-menu__item {
+      color: blue;
+    }
+    .ba-menu__item:last-child {
+      position: relative;
+    }
+  }
+  .pizza:hover .ba-sub-pizza {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    visibility: visible;
+    opacity: 1;
+  }
+
+
 
   &__item + &__item {
     margin-left: 40px;
   }
-
+  
   &__link {
+    position: relative;
     color: inherit;
     text-decoration: none;
     font-size: 0.875em;
