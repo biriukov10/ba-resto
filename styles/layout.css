@@ -17,7 +17,8 @@
   margin-top: 1rem; }
 
 [class^='ba-col-'] {
-  padding: 0 15px; }
+  padding: 0 15px;
+  width: 100%; }
 
 .ba-col-1 {
   width: 8.33333%; }

@@ -17,7 +17,8 @@
   margin-top: 1rem; }
 
 [class^='ba-col-'] {
-  padding: 0 15px; }
+  padding: 0 15px;
+  width: 100%; }
 
 .ba-col-1 {
   width: 8.33333%; }
@@ -56,14 +57,14 @@
   width: 100%; }
 
 @font-face {
-  font-family: 'wc_mano_negra_btaregular';
+  font-family: "wc_mano_negra_btaregular";
   src: url("../fonts/wcmanonegrabta_regular_macroman/WCManoNegraBta-webfont.woff");
   font-weight: normal;
   font-display: swap;
   font-style: normal; }
 
 body {
-  font-family: 'Aleo', serif;
+  font-family: "Aleo", serif;
   color: #3b3b3b; }
 
 a {
@@ -85,7 +86,7 @@ ul {
     justify-content: space-between; }
 
 .ba-logo {
-  font-family: 'wc_mano_negra_btaregular', serif;
+  font-family: "wc_mano_negra_btaregular", serif;
   font-size: 50px;
   text-decoration: none;
   color: inherit; }
@@ -235,7 +236,7 @@ ul {
     color: inherit;
     text-decoration: none;
     font-size: 0.875em;
-    transform: opacity .4s;
+    transform: opacity 0.4s;
     outline-color: #f34b4b; }
     .ba-menu__link:hover {
       opacity: 0.75; }
@@ -251,7 +252,7 @@ ul {
   background-size: cover;
   background-repeat: no-repeat; }
   .ba-hero__title {
-    font-family: 'wc_mano_negra_btaregular', serif;
+    font-family: "wc_mano_negra_btaregular", serif;
     font-size: 6.25rem;
     margin: 0; }
   .ba-hero__desc {
@@ -305,7 +306,7 @@ ul {
   width: calc(50% - 44px);
   margin-bottom: 3em; }
   .ba-menu-item::before {
-    content: '';
+    content: "";
     position: absolute;
     height: 1px;
     right: 70px;
@@ -321,7 +322,7 @@ ul {
     font-size: 1rem;
     line-height: 1.75;
     color: #555555;
-    letter-spacing: .05em; }
+    letter-spacing: 0.05em; }
   .ba-menu-item__desc {
     margin-top: 0;
     color: #b7b7b7;
@@ -338,8 +339,72 @@ ul {
   align-items: center;
   font-size: 0.875rem;
   padding: 0 1em;
-  letter-spacing: .07em; }
+  letter-spacing: 0.07em; }
   .ba-btn__arrow {
-    margin-left: .75rem;
-    padding-left: .75rem;
+    margin-left: 0.75rem;
+    padding-left: 0.75rem;
     border-left: 1px solid currentColor; }
+
+.ba-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3.75rem; }
+
+.ba-section__title {
+  text-transform: uppercase;
+  position: relative; }
+  .ba-section__title::after {
+    content: "";
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: 1px;
+    background-color: #e3e1e1e1;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    margin-left: 20px; }
+
+.ba-dish__thumb {
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 1.5rem; }
+
+.ba-dish__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
+
+.ba-dish__head {
+  display: flex;
+  justify-content: space-between; }
+
+.ba-dish__title, .ba-dish__price {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin: 0 0 0.875em; }
+
+.ba-dish-rating {
+  position: relative;
+  height: 13px;
+  width: 80px;
+  background-image: url(../images/stars-grey.png);
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .ba-dish-rating_actual {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden; }
+    .ba-dish-rating_actual-stars {
+      width: 80px;
+      height: 100%;
+      background-image: url(../images/stars-gold.png);
+      background-size: cover;
+      background-repeat: no-repeat; }
