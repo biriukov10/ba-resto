@@ -1,6 +1,15 @@
 * {
   box-sizing: border-box; }
 
+.visually-hidden {
+  position: absolute;
+  left: -9999999px;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden; }
+
 .container {
   max-width: 1130px;
   width: 100%;
@@ -83,7 +92,8 @@ ul {
   align-items: center; }
   .ba-header-wrapper {
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    align-items: center; }
 
 .ba-logo {
   font-family: "wc_mano_negra_btaregular", serif;
@@ -240,6 +250,34 @@ ul {
     outline-color: #f34b4b; }
     .ba-menu__link:hover {
       opacity: 0.75; }
+  .ba-menu__btn {
+    display: none; }
+  @media screen and (max-width: 600px) {
+    .ba-menu {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      min-height: 100vh;
+      background-color: #fff;
+      transform: translateX(-100%);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 30px 15px 30px 30px;
+      transition: transform .4s; }
+      .ba-menu__btn {
+        position: relative;
+        display: block;
+        width: 30px;
+        height: 30px;
+        z-index: 5; }
+        .ba-menu__btn span {
+          display: inline-block;
+          width: 100%;
+          height: 2px;
+          background-color: #000; }
+      #menuOpen:checked ~ .ba-menu {
+        transform: translateX(0); } }
 
 .ba-hero {
   display: flex;
@@ -255,6 +293,9 @@ ul {
     font-family: "wc_mano_negra_btaregular", serif;
     font-size: 6.25rem;
     margin: 0; }
+    @media screen and (max-width: 600px) {
+      .ba-hero__title {
+        font-size: 2.5rem; } }
   .ba-hero__desc {
     position: relative;
     max-width: 50%;
@@ -366,6 +407,17 @@ ul {
     left: 100%;
     transform: translateY(-50%);
     margin-left: 20px; }
+    @media screen and (max-width: 600px) {
+      .ba-section__title::after {
+        content: "";
+        top: 170%;
+        left: 3%;
+        width: 70%; } }
+  @media screen and (max-width: 600px) {
+    .ba-section__title {
+      font-size: 1.3rem;
+      margin-top: 30px;
+      margin-left: 60px; } }
 
 .ba-dish__thumb {
   height: 200px;
@@ -408,3 +460,17 @@ ul {
       background-image: url(../images/stars-gold.png);
       background-size: cover;
       background-repeat: no-repeat; }
+
+@media screen and (max-width: 600px) {
+  .ba-slider .ba-col-3 {
+    width: 50%; }
+    .ba-slider .ba-col-3 .ba-slide {
+      margin-bottom: 10px; } }
+
+@media screen and (max-width: 500px) {
+  .ba-menu-item {
+    width: 100%; }
+  .ba-slider .ba-col-3 {
+    width: 100%; }
+    .ba-slider .ba-col-3 .ba-slide {
+      margin-bottom: 10px; } }
