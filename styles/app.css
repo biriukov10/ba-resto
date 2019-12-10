@@ -1,9 +1,7 @@
 * {
   box-sizing: border-box;
 }
-.red {
-  color: red;
-}
+
 .visually-hidden {
   position: absolute;
   left: -9999999px;
@@ -27,6 +25,9 @@
   right: 0;
   transition: 0.7s;
   z-index: 5;
+}
+.top-header {
+  margin-top: 200px;
 }
 .ba-row {
   display: flex;

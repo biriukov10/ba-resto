@@ -11,14 +11,17 @@ window.addEventListener('scroll', function () {
   }
 });
 
+
 // task for header fixed menu
-let dishes = document.querySelector('.ba-section-dishes');
-console.log(dishes.clientHeight);
 window.addEventListener('scroll', function () {
   let header = document.querySelector('.ba-header');
+  let hero = document.querySelector('.ba-hero');
   if (window.pageYOffset > 114) {
     header.classList.add('ba-header-fix');
+    hero.classList.add('top-header');
   } else {
     header.classList.remove('ba-header-fix');
+    hero.classList.remove('top-header');
   }
 });
+
