@@ -55,18 +55,18 @@ $(document).ready(function () {
     console.log($(this).text());
   });
 
-
-  // console.log($('.ba-dish__img'));
-
-  let $dish = $('.ba-dish__img');
-
-  $dish.on('click', function () {
-    // let $title = $('.ba-dish__title').parent().parent().children().children().children().text();
-    let $src = $(this).attr('src');
-    console.log($src);
-    let $link = $('.ba-dish__link');
-    $link.text($src);
+  $('.ba-dish__img').on('click', function () {
+    $(this).parent().siblings().find(".ba-dish__title").text($(this).attr("src"));
   });
+
+
+
+
+
+
+
+
+
 
   // по нажатию на кнопку добавляется еще один список
   let btn = $('.ba-btn').first();
