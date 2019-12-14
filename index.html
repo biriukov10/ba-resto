@@ -41,7 +41,7 @@
                     <li class="ba-menu__item">
                       <a href="#" class="ba-menu__link">Havanna</a>
                     </li>
-                    <li class="ba-menu__item">
+                    <li class="ba-menu__item first">
                       <a href="#" class="ba-menu__link">Chiken</a>
                     </li>
                     <li class="ba-menu__item">
@@ -98,7 +98,7 @@
                     <li class="ba-menu__item">
                       <a href="#" class="ba-menu__link">Spain</a>
                     </li>
-                    <li class="ba-menu__item">
+                    <li class="ba-menu__item first">
                       <a href="#" class="ba-menu__link">Ukraine</a>
                     </li>
                     <li class="ba-menu__item vist">
@@ -136,14 +136,23 @@
     </section>
     <section class="ba-section ba-section-menu" id="menu">
       <div class="container">
-        <a href="#menu">
+        <a href="#menu" class="link">
           <h2 class="ba-section-menu__title">The Menu</h2>
         </a>
         <!-- start menu -->
         <div class="ba-menu-wrapper">
           <ul class="ba-menu-list">
             <!-- start ba-menu__item" -->
-            <li class="ba-menu-item">
+            <li class="ba-menu-item first">
+              <div class="ba-menu-item__info">
+                <h3 class="ba-menu-item__title">Voluptate cillum fugiat.</h3>
+                <p class="ba-menu-item__desc">Cheese, tomato, mushrooms, onions.</p>
+              </div>
+              <strong class="ba-menu-item__price">$50</strong>
+            </li>
+            <!-- end ba-menu__item" -->
+            <!-- start ba-menu__item" -->
+            <li class="ba-menu-item first">
               <div class="ba-menu-item__info">
                 <h3 class="ba-menu-item__title">Voluptate cillum fugiat.</h3>
                 <p class="ba-menu-item__desc">Cheese, tomato, mushrooms, onions.</p>
@@ -188,7 +197,7 @@
             </li>
             <!-- end ba-menu__item" -->
             <!-- start ba-menu__item" -->
-            <li class="ba-menu-item">
+            <li class="ba-menu-item first">
               <div class="ba-menu-item__info">
                 <h3 class="ba-menu-item__title">Voluptate cillum fugiat.</h3>
                 <p class="ba-menu-item__desc">Cheese, tomato, mushrooms, onions.</p>
@@ -197,16 +206,7 @@
             </li>
             <!-- end ba-menu__item" -->
             <!-- start ba-menu__item" -->
-            <li class="ba-menu-item">
-              <div class="ba-menu-item__info">
-                <h3 class="ba-menu-item__title">Voluptate cillum fugiat.</h3>
-                <p class="ba-menu-item__desc">Cheese, tomato, mushrooms, onions.</p>
-              </div>
-              <strong class="ba-menu-item__price">$50</strong>
-            </li>
-            <!-- end ba-menu__item" -->
-            <!-- start ba-menu__item" -->
-            <li class="ba-menu-item">
+            <li class="ba-menu-item first">
               <div class="ba-menu-item__info">
                 <h3 class="ba-menu-item__title">Voluptate cillum fugiat.</h3>
                 <p class="ba-menu-item__desc">Cheese, tomato, mushrooms, onions.</p>
@@ -228,8 +228,23 @@
         </button>
       </div>
     </section>
+
     <section class="ba-section ba-section-dishes">
       <div class="container">
+        <div class="ba-row">
+          <button class="ba-btn" id="classFirst">
+            .test
+          </button>
+          <button class="ba-btn" id="first">
+            first
+          </button>
+          <button class="ba-btn" id="five">
+            5th
+          </button>
+          <button class="ba-btn" id="threeToFive">
+            3-5
+          </button>
+        </div>
         <div class="ba-section-header">
           <h2 class="ba-section__title">Featured Dishes</h2>
           <!-- slider -->
@@ -343,7 +358,10 @@
       </div>
     </div>
   </footer>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+    integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
   <script src="main.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>
