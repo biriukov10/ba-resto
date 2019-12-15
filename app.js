@@ -12,14 +12,14 @@ $(document).ready(function () {
   // console.log($('.first').next());
   //получить все элементы li с классом first
   // $('li.first').css('border', '2px solid tomato');
-  $('.ba-hero__title').css({
-    'border': '1px solid red',
-    'font-size': '14px',
-  });
-  $('.ba-hero__title').on('click', function () {
-    console.log($(this));
-    $(this).next().addClass('next')
-  });
+  // $('.ba-hero__title').css({
+  //   'border': '1px solid red',
+  //   'font-size': '14px',
+  // });
+  // $('.ba-hero__title').on('click', function () {
+  //   console.log($(this));
+  //   $(this).next().addClass('next')
+  // });
 
 
   $('#classFirst').on('click', function () {
@@ -55,17 +55,16 @@ $(document).ready(function () {
     console.log($(this).text());
   });
 
+  //по нажатию на картинку, меняется текст на src картинки
+
   $('.ba-dish__img').on('click', function () {
     $(this).parent().siblings().find(".ba-dish__title").text($(this).attr("src"));
+    /*
+  обращаемся к картинке, находим родителя, далее соседний элемент, потом находим наш заголовок,
+   и туда вписываем текст который у нашей картинки в src |
+  можно так же выйти на общего родителя, и по классу уже у него искать данный заголовок и ему записывать текст
+    */
   });
-
-
-
-
-
-
-
-
 
 
   // по нажатию на кнопку добавляется еще один список
