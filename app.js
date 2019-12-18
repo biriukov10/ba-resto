@@ -94,6 +94,103 @@ $(document).ready(function () {
       $h3TitleItem.next('p').hide();
     }
   });
+
+  //  ============== modal window
+
+
+  $('.ba-gallery__img').on('click', function (e) {
+    let $imgSrc = $(this).attr('src');
+    let $modalImg = $('<img>');
+
+    $modalImg.attr('src', $imgSrc).addClass('ba-modal__image');
+
+    $('.ba-modal-content-wrapper').append($modalImg);
+
+    $modalOpen()
+  });
+
+
+  let $modalOpen = function () {
+    $('.ba-modal').addClass('ba-modal--open');
+    //добавляем класс что бы при открытии не скролилась наше окно
+    $('body').addClass('ba-modal-is-open');
+    // по нажатию на esc закрывать модальное окно
+    $(document).on('keydown', function (e) {
+      if (e.keyCode == 27) {
+        $modalClose();
+      }
+    });
+
+  };
+  let $modalClose = function () {
+    $('.ba-modal').removeClass('ba-modal--open');
+    $('.ba-modal-content-wrapper').empty();
+    //удаляем класс что бы при открытии скролилась наше окно
+    $('body').removeClass('ba-modal-is-open');
+  };
+
+  $('.ba-modal-close').on('click', $modalClose);
+
+  // по нажатию за модальное окно, закрыть его
+  $('.ba-modal').on('click', function (e) {
+    let $modalContent = $('.ba-modal-content'); // тут указываем элемент в котором лежит наш контент
+    if (!$modalContent.is(e.target) // проверяем, что клик не былоо не по блоку с контентом 
+      && $modalContent.has(e.target).length === 0) { // и не по дочерним элементам блока с контентом
+      $modalClose(); // тогда закарываем окно
+    }
+  });
+
+
+
+
+  // ================================== ISOTOPE
+  $('.noPadding').isotope({
+  });
+
+  var filters = [];
+  $('.isotope').on('click', 'button', function () {
+    $(this).toggleClass('active');
+    var isChecked = $(this).hasClass('active');
+    var filter = $(this).attr('data-filter');
+    if (isChecked) {
+      addFilter(filter);
+    } else {
+      removeFilter(filter);
+    }
+
+    // console.log(filters);
+    $('.noPadding').isotope({
+      filter: filters.join(',')
+    });
+  });
+
+  function addFilter(filter) {
+    if (filters.indexOf(filter) == -1) {
+      filters.push(filter);
+      filters.join(',')
+    }
+  }
+  function removeFilter(filter) {
+    var index = filters.indexOf(filter);
+    if (index != -1) {
+      filters.splice(index, 1);
+      console.log(filters.join(','));
+    }
+  }
+
+
+  //=========================== slick slider
+  $('.ba-slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: false,
+    centerMode: true,
+  });
+
+
+
 });
 
 
