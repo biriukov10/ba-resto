@@ -2,6 +2,7 @@
 // lesson jquery
 
 $(document).ready(function () {
+  'use strict';
   // // console.log('Выбираем li с классом first', $('li.first'));
   // console.log('получить последний элемент li', $('li').last());
   // //получить пятный элемент с классом ba-menu-item
@@ -178,20 +179,40 @@ $(document).ready(function () {
     }
   }
 
-
   //=========================== slick slider
   $('.ba-slider').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1500,
-    arrows: false,
+    arrows: true,
     centerMode: true,
+  });
+  //=========================== Google map
+
+  let map;
+  let mapContainer = $('#map')[0];
+  let mapCenter = { lat: 50.0068847, lng: 36.2352522 };
+  let marker = new google.maps.Marker({
+    position: mapCenter,
+    map: map,
+  });
+
+  // let infowindow = newgoogle.maps.infoWindow({
+  //   content: 'Beetroot Acadamy',
+  // });
+  // infowindow.open(map, marker);
+  map = new google.maps.Map(mapContainer, {
+    center: mapCenter,
+    zoom: 17,
+    disableDefaultUI: true,
   });
 
 
 
+
 });
+
 
 
 
