@@ -193,11 +193,11 @@ $(document).ready(function () {
   let map;
   let mapContainer = $('#map')[0];
   let mapCenter = { lat: 50.006585, lng: 36.237077 };
-
   map = new google.maps.Map(mapContainer, {
     center: mapCenter,
-    zoom: 17,
+    zoom: 6,
     disableDefaultUI: true,
+    // start dark style
     styles: [
       { elementType: 'geometry', stylers: [{ color: '#242f3e' }] },
       { elementType: 'labels.text.stroke', stylers: [{ color: '#242f3e' }] },
@@ -279,19 +279,120 @@ $(document).ready(function () {
       }
     ]
   });
+  // end dark style
+  let baOffices = [
+    {
+      city: 'Kharkiv',
+      position: { lat: 50.006693, lng: 36.237199 },
+      img: 'images/cupcake.png'
+    },
 
-  let marker = new google.maps.Marker({
-    position: mapCenter,
-    map: map,
-    title: 'Beetroot Academy',
-    icon: 'https://vladivanovgit.github.io/works-slider/favicon.ico'
+    {
+      city: 'Poltava',
+      position: { lat: 49.588983, lng: 34.5554741 },
+      img: 'images/cupcake.png'
+    },
+    {
+      city: 'Kramatorsk',
+      position: { lat: 48.9009301, lng: 36.5196854 },
+      img: 'images/cupcake.png'
+    },
+    {
+      city: 'Kyiv',
+      position: { lat: 50.4637267, lng: 30.4977141 },
+      img: 'images/cupcake.png'
+    },
+    {
+      city: 'Ivano-frankovsk',
+      position: { lat: 48.917688, lng: 24.702575 },
+      img: 'images/cupcake.png',
+    }
+  ];
+  // add cities to select element
+  function addCities() {
+    for (let i = 0; i < baOffices.length; i++) {
+      let option = document.createElement('option');
+      option.textContent = baOffices[i].city;
+
+      option.setAttribute('value', baOffices[i].position.lat + ',' + baOffices[i].position.lng);
+      let select = document.querySelector('#city');
+      select.append(option);
+    }
+  }
+  addCities();
+
+  let select = document.querySelector('#city');
+  select.addEventListener('change', function () {
+    let center = new google.maps.LatLng(this.value.split(',')[0], this.value.split(',')[1]);
+    map.panTo(center);
   });
-  let info = new google.maps.InfoWindow({
-    content: '<h3>Beetroot Academy</h3>'
-  });
-  marker.addListener('click', function () {
-    info.open(map, marker);
-  });
+
+
+  // let btnFoMap = document.getElementById('changeCenter');
+  // btnFoMap.addEventListener('click', function () {
+  //   let center = new google.maps.LatLng(48.917688, 24.702575);
+
+  //   map.panTo(center);
+  // });
+
+  // цикл по созданию нескольких маркеров
+  for (let i = 0; i < baOffices.length; i++) {
+    let marker = new google.maps.Marker({
+      position: baOffices[i].position,
+      map: map,
+      title: baOffices[i].city,
+      icon: baOffices[i].img,
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // for (let key of baOffices) {
+  //   let marker = new google.maps.Marker({
+  //     position: key.position,
+  //     map: map,
+  //     title: key.city,
+  //     icon: key.img
+  //   });
+  // }
+
+
+
+  // let btnFoMap = document.getElementById('changeCenter');
+  // btnFoMap.addEventListener('click', function () {
+  //   let center = new google.maps.LatLng(48.917688, 24.702575);
+
+  //   map.panTo(center);
+  // });
+
+  // let marker = new google.maps.Marker({
+  //   position: mapCenter,
+  //   map: map,
+  //   title: 'Beetroot Academy',
+  //   icon: 'https://vladivanovgit.github.io/works-slider/favicon.ico',
+
+  // });
+
+
+  // let info = new google.maps.InfoWindow({
+  //   content: '<h3>Beetroot Academy</h3>'
+  // });
+
+  // marker.addListener('click', function () {
+  //   info.open(map, marker);
+  // });
+
 });
 
 
