@@ -1,8 +1,8 @@
-
+'use strict';
 // lesson jquery
 
+new WOW().init();
 $(document).ready(function () {
-  'use strict';
   // // console.log('Выбираем li с классом first', $('li.first'));
   // console.log('получить последний элемент li', $('li').last());
   // //получить пятный элемент с классом ba-menu-item
@@ -26,6 +26,7 @@ $(document).ready(function () {
   $('#classFirst').on('click', function () {
     console.log($('li.test'));
   });
+
   $('#first').on('click', function () {
     console.log($('li').first());
   });
@@ -284,7 +285,7 @@ $(document).ready(function () {
     {
       city: 'Kharkiv',
       position: { lat: 50.006693, lng: 36.237199 },
-      img: 'images/cupcake.png'
+      img: '../images/cupcake.png'
     },
 
     {
@@ -323,7 +324,8 @@ $(document).ready(function () {
 
   let select = document.querySelector('#city');
   select.addEventListener('change', function () {
-    let center = new google.maps.LatLng(this.value.split(',')[0], this.value.split(',')[1]);
+    let thisVal = this.value.split(',');
+    let center = new google.maps.LatLng(thisVal[0], thisVal[1]);
     map.panTo(center);
   });
 
@@ -393,8 +395,10 @@ $(document).ready(function () {
   //   info.open(map, marker);
   // });
 
-});
 
+
+
+});
 
 
 
